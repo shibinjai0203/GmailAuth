@@ -22,7 +22,7 @@
     }
     else
     {
-        <p><a asp-controller="home" asp-action="login">Login</a> - You are not currently logged in.</p>
+        <p><a asp-controller="home" asp-action="login", new {returnUrl = 'https://localhost:5001/'} >Login</a> - You are not currently logged in.</p>
     }
     
 </body>

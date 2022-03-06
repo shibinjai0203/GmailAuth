@@ -28,6 +28,9 @@ namespace AuthApp.Controllers
 
         public async Task<IActionResult> LoginCallback(string returnUrl)
         {
+            if(string.IsNullOrEmpty(returnUrl) && !Url.IsLocalUrl(returnUrl))                       
+                return RedirectToAction("List", "Home");  
+                    
             var authenticateResult = await HttpContext.AuthenticateAsync("External");
 
             if (!authenticateResult.Succeeded)
