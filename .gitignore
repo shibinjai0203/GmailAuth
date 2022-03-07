@@ -67,3 +67,5 @@ AuthApp/obj/Debug/net5.0/Razor/Views/Shared/Error.cshtml.g.cs
 AuthApp/obj/Debug/net5.0/ref/AuthApp.dll
 AuthApp/obj/Debug/net5.0/staticwebassets/AuthApp.StaticWebAssets.Manifest.cache
 AuthApp/obj/Debug/net5.0/staticwebassets/AuthApp.StaticWebAssets.xml
+AuthApp/obj/Debug/net5.0/authapp.csproj.AssemblyReference.cache
+AuthApp/obj/Debug/net5.0/project.razor.json
