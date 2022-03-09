@@ -56,11 +56,8 @@ namespace AuthApp
             // You should ensure that your app uses the correct error page depending on the environment
             // it runs in.
             app.UseDeveloperExceptionPage();
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthentication();
             app.UseAuthorization();
 
