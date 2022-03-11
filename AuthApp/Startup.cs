@@ -52,9 +52,6 @@ namespace AuthApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // This is not a production app so we always use the developer exception page.
-            // You should ensure that your app uses the correct error page depending on the environment
-            // it runs in.
             app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
             app.UseRouting();
