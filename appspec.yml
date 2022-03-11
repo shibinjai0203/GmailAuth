@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /authapp/views/home/index.cshtml
+  - source: ../views/home/index.cshtml
     destination: /var/www/html/
 hooks:
   BeforeInstall:
