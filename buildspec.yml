@@ -6,37 +6,13 @@ env:
      PROJECT: AuthApp
      DOTNET_CORE_RUNTIME: 3.1
 
-phases:   
-  install:
-    runtime-versions:
-      dotnet: ${DOTNET_CORE_RUNTIME}
-      
-  pre_build:
-    commands:
-      - echo Restore started on `date`
-      - dotnet restore
-      
+phases:
   build:
     commands:
-      - echo Build started on `date`
-      - dotnet build -c Release
-      - dotnet test -c Release --logger trx --results-directory ./testresults
-      
-  post_build:
-    commands:
-      - echo Publish started on `date`
-      - dotnet publish -c Release  -r linux-x64 -o ./build_output ./${AuthApp}/${AuthApp}.csproj --self-contained false
-      - cp Procfile ./build_output
-
+      - nuget restore
+      - msbuild $env:AuthApp.csproj /p:TargetFrameworkVersion=v$env:DOTNET_FRAMEWORK /p:Configuration=Release /p:DeployIisAppPath="Default Web Site" /p:PackageAsSingleFile=false /p:OutDir=C:\codebuild\artifacts\ /t:Package
 artifacts:
   files:
     - '**/*'
-  base-directory: ./build_output
-  discard-paths: no
-
-reports:
-  ${PROJECT}:
-    file-format: VisualStudioTrx
-    files:
-      - '**/*'
+  base-directory: 'C:\codebuild\artifacts\_PublishedWebsites\${env:AuthApp}_Package\Archive\'
     base-directory: './testresults'
