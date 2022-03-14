@@ -31,7 +31,6 @@ namespace AuthApp
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
-
             services
             .AddAuthentication(o =>
             {
